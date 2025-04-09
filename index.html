@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+
+    <!-- ✅ Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ✅ Enable dark mode via class strategy -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      };
+    </script>
+
+    <!-- ✅ Custom light/dark background -->
+   <style>
+  body {
+    margin: 0;
+    padding: 0;
+    transition: background 0.8s ease-in-out, color 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out;
+    backdrop-filter: blur(4px); /* Soft blur */
+  }
+
+  body.light {
+    background: linear-gradient(-45deg, #60a5fa, #3b82f6, #93c5fd, #60a5fa);
+    background-size: 400% 400%;
+    animation: gradient-move 10s ease infinite;
+    color: #1e293b;
+  }
+
+  body.dark {
+    background: linear-gradient(-45deg, #1f2937, #111827, #374151, #1f2937);
+    background-size: 400% 400%;
+    animation: gradient-move 10s ease infinite;
+    color: #f8fafc;
+  }
+
+  @keyframes gradient-move {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+</style>
+
+    
+    
+    
+  </head>
+  <body class="light transition duration-300">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
